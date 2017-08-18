@@ -10,8 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var textField: UITextField!
+    
     @IBAction func unwindToRed(unwindSegue: UIStoryboardSegue) {
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if textField != nil {
+            segue.destination.navigationItem.title = textField.text
+        }
     }
     
     override func viewDidLoad() {

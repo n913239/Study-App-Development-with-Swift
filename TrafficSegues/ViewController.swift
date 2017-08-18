@@ -11,17 +11,20 @@ import UIKit
 class ViewController: UIViewController {
 
     
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var segueSwitch: UISwitch!
     
-    @IBAction func unwindToRed(unwindSegue: UIStoryboardSegue) {
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if textField != nil {
-            segue.destination.navigationItem.title = textField.text
+    @IBAction func yellowButtonTapped(_ sender: Any) {
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Yellow", sender: nil)
         }
     }
+    
+    @IBAction func greenButtonTapped(_ sender: Any) {
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Green", sender: nil)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
